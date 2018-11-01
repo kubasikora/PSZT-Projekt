@@ -1,5 +1,6 @@
 from flask import Flask, Response, request
 from flask_cors import CORS
+from genetics import CardsHandler
 import os
 import json
 
@@ -48,6 +49,28 @@ def test_handler():
     return Response(json.dumps(resp), mimetype='application/json') 
 
 
+@app.route("/find-distribution")
+def find_distribution_handler():
+    try:
+        a_value = int(request.args.get("A"))
+        b_value = int(request.args.get("B"))
+        
+    except (ValueError, TypeError):
+        resp = {
+            "error": True,
+            "message": "Invalid arguments" 
+        }
+        return Response(json.dumps(resp), mimetype='application/json')
+
+    handler = CardsHandler(a_value, b_value)
+    result = handler.evaluate()
+    resp = {
+        "error": False,
+        "A": result['A'],
+        "B": result['B']
+    }
+    return Response(json.dumps(resp), mimetype='application/json')
+	
 #kodowanie odpowiedzi
 app.config['RESTUFL_JSON'] = {
     'ensure_ascii': False
@@ -55,6 +78,4 @@ app.config['RESTUFL_JSON'] = {
 
 #uruchomienie serwera na porcie wskazanym przez zmienną środowiskową/domyślną wartość
 port = int(os.environ.get('PORT', 5000))
-app.run(host='0.0.0.0', port=port)
- 
-   
+app.run(host='0.0.0.0', port=port)  
