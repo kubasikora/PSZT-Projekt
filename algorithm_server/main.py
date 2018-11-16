@@ -31,9 +31,9 @@ def hello(): #handler tej ścieżki
 """
 @app.route("/test")
 def test_handler():
-    a_value = request.args.get("A") #pobranie argumentu z URL
-    b_value = request.args.get("B") 
     try:
+        a_value = request.args.get("A") #pobranie argumentu z URL
+        b_value = request.args.get("B") 
         resp = {                    #utworzenie obiektu odpowiedzi
             "error": False,
             "A": int(a_value),
@@ -43,6 +43,11 @@ def test_handler():
         resp = {
             "error": True,
             "message": "Invalid arguments" 
+        }
+    except TypeError:
+        resp = {
+            "error": True,
+            "message": "Missing arguments" 
         }
         
     #generacja odpowiedzi z typem json 
