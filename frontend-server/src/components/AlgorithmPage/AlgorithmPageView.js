@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 
-class EntryPageView extends Component {
+class AlgorithmPageView extends Component {
     constructor(props){
         super(props);
         this.onClickHandler = this.onClickHandler.bind(this);
@@ -19,7 +19,7 @@ class EntryPageView extends Component {
                     <img src="./helix.gif" className="App-logo" alt="logo" />
                     <p className="App-text" onClick={this.onClickHandler}>
                         Podstawy Sztucznej Inteligencji
-            </p>
+                    </p>
                 </header>
             </div>
         );

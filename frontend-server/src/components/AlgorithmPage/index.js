@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
-import EntryPageView from './EntryPageView';
+import AlgorithmPageView from './AlgorithmPageView';
 import fetchGeneticResponse from '../../actions/fetchGeneticResponse';
 
 const mapStateToProps = (state, ownProps) => {
     return {
-
+        
     }
 }
 
@@ -16,6 +16,6 @@ const mapDispatchToProps = dispatch => {
 }
 
 
-const EntryPage = connect(mapStateToProps, mapDispatchToProps)(EntryPageView);
+const AlgorithmPage = connect(mapStateToProps, mapDispatchToProps)(AlgorithmPageView);
 
-export default EntryPage;
+export default AlgorithmPage;

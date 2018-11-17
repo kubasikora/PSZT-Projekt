@@ -6,10 +6,16 @@ import fetchGeneticResponseError from "./fetchGeneticResponseError";
 
 const fetchGeneticResponse = (A, B) => {
 	return dispatch => {
-		dispatch(fetchGeneticResponseStart());
-		axios.get(`${endpoint}/api/betHistory?A=${A}&=${B}`)
-		.then(response => dispatch(fetchGeneticResponseAck(response)))
-		.catch(error => dispatch(fetchGeneticResponseError(error)))
+		const args = {
+			A,
+			B
+		};
+		dispatch(fetchGeneticResponseStart(args));
+		axios.get(`${endpoint}/test?A=${A}&B=${B}`)
+			.then(response => {
+				dispatch(fetchGeneticResponseAck(response))
+			})
+			.catch(error => dispatch(fetchGeneticResponseError(error)))	
 	}
 }
 

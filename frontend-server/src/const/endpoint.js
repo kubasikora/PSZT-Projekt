@@ -1,3 +1,3 @@
-const endpoint = "localhost:5000";
+const endpoint = "http://localhost:5000"
 
 export default endpoint;

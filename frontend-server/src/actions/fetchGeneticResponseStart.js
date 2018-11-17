@@ -1,8 +1,9 @@
 import {FETCH_GENETIC_RESPONSE_START} from "../const/actionTypes";
 
-const fetchGeneticResponseStart = error => {
+const fetchGeneticResponseStart = args => {
     return {
         type: FETCH_GENETIC_RESPONSE_START,
+        args
     }
 }
 
