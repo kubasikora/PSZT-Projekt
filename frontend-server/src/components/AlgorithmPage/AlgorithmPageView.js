@@ -27,4 +27,4 @@ class AlgorithmPageView extends Component {
 }
 
 
-export default EntryPageView;
+export default AlgorithmPageView;
