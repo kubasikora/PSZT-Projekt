@@ -36,8 +36,8 @@ def test_handler():
         b_value = request.args.get("B") 
         resp = {                    #utworzenie obiektu odpowiedzi
             "error": False,
-            "A": int(a_value),
-            "B": int(b_value)
+            "A": 5*[int(a_value)],
+            "B": 5*[int(b_value)]
         }
     except ValueError:              #handel sytuacji błędnej
         resp = {
