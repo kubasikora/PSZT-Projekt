@@ -17,8 +17,7 @@ class CardsHandler:
 			nextp = p.create_next_epoch()
 			p = nextp
 			
-		p.get_the_best_error()
-		best = p.parents[0].genes
+		best = p.get_the_best_error()
 		A_ret = []
 		B_ret = []
 		for i in range(len(self.conf['cards'])):

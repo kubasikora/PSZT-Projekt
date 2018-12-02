@@ -22,7 +22,7 @@ class Population:
 
     def get_the_best_error(self):
         self.parents.sort(key=lambda ph: ph.fitness)
-        print(self.parents[0].fitness)
+        return self.parents[0].genes
 
     def create_next_epoch(self):
         kids = []
