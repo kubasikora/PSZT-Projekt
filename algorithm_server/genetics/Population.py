@@ -1,4 +1,6 @@
 from .Phenotype import Phenotype    
+import random
+from functools import cmp_to_key
 
 class Population:
     def __init__(self, params, judge, a, b):
@@ -18,5 +20,26 @@ class Population:
             r = self.judge.goal_eval(self.a, self.b, p)
             self.parents.append(p)
 
-    def create_next_epoch():
-        print('dipa') 
+    def get_the_best_error(self):
+        self.parents.sort(key=lambda ph: ph.fitness)
+        print(self.parents[0].fitness)
+
+    def create_next_epoch(self):
+        kids = []
+
+        for i in range(self.params['lambda']):
+            [father, mother] = random.sample(self.parents, 2)
+            kid = mother.crossover(father, self.params['crosses'])
+            self.judge.goal_eval(self.a, self.b, kid)
+            kids.append(kid)
+
+        merged_phenotypes = kids + self.parents
+        merged_phenotypes.sort(key=lambda ph: ph.fitness)
+
+        #strategia elitarna 
+        next_population = Population(self.params, self.judge, self.a, self.b)
+        for i in range(self.params['mi']):
+            next_population.push_phenotype(merged_phenotypes[i])
+
+        return next_population
+    

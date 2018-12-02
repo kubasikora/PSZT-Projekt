@@ -1,3 +1,7 @@
+import json
+from .Judge import Judge
+from .Population import Population
+
 class CardsHandler:
 	def __init__(self, a_value, b_value):
 		self.a_value = a_value
@@ -7,7 +11,22 @@ class CardsHandler:
 		self.judge = Judge(self.conf['cards'])
 	
 	def evaluate(self):
-	    return {
-	        "A": self.a_value,
-	        "B": self.b_value
+		p = Population(self.conf, self.judge, self.a_value, self.b_value)
+		p.generate_random_population()
+		for i in range(self.conf['epochs']):
+			nextp = p.create_next_epoch()
+			p = nextp
+			
+		p.get_the_best_error()
+		best = p.parents[0].genes
+		A_ret = []
+		B_ret = []
+		for i in range(len(self.conf['cards'])):
+			if(best[i]):
+				A_ret.append(self.conf['cards'][i])
+			else:
+				B_ret.append(self.conf['cards'][i])
+		return {
+	    	"A": A_ret,
+	        "B": B_ret
 	    }
