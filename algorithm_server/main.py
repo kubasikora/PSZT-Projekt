@@ -1,6 +1,6 @@
 from flask import Flask, Response, request
 from flask_cors import CORS
-from genetics import CardsHandler
+from genetics import CardsHandler, Judge, Phenotype, Population
 import os
 import json
 
@@ -83,4 +83,15 @@ app.config['RESTUFL_JSON'] = {
 
 #uruchomienie serwera na porcie wskazanym przez zmienną środowiskową/domyślną wartość
 port = int(os.environ.get('PORT', 5000))
+
+p = Population({
+    "mi": 10,
+    "cards": [1,2,3,4,5,6,7,8,9,10]
+}, Judge([1,2,3,4,5,6,7,8,9,10]),
+10,
+20)
+p.generate_random_population()
+
+
+
 app.run(host='0.0.0.0', port=port)  
