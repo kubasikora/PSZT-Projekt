@@ -10,7 +10,7 @@ CORS(app) # włączenie mechanizmu Cross-Origin-Resource-Sharing
 """
     Zwraca informację o stanie serwera.
     Przykładowe wywołanie:
-        GET localhost:5000
+        GET localhost:5000/
     Odpowiedź:
         Algorithm server is online!
 """
@@ -19,14 +19,17 @@ def hello(): #handler tej ścieżki
     return "Algorithm server is online!" 
     
       
+
+
 """
-    Zwraca przekazane argumenty w odpowiedzi typu JSON
+    Zwraca przekazane argumenty zagregowane w tablicę
     Przykładowe wywołanie:
-        GET localhost:5000?A=40&B=300
+        GET localhost:5000/test?A=40&B=300
     Odpowiedź:
-        {
-            A: 50
-            B: 300
+        { 
+            "error": false,
+            "A": [12, 12, 12, 12, 12], 
+            "B": [33, 33, 33, 33, 33]
         }
 """
 @app.route("/test")
@@ -54,6 +57,19 @@ def test_handler():
     return Response(json.dumps(resp), mimetype='application/json') 
 
 
+
+
+"""
+    Zwraca podział kart zgodnie z zadaniem
+    Przykładowe wywołanie:
+        GET localhost:5000/find-distribution?A=12&B=33
+    Odpowiedź:
+        { 
+            "error": false,
+            "A": [1, 2, 4, 10],
+            "B": [3, 5, 6, 7, 8, 9]
+        }
+"""
 @app.route("/find-distribution")
 def find_distribution_handler():
     try:
@@ -76,6 +92,29 @@ def find_distribution_handler():
     }
     return Response(json.dumps(resp), mimetype='application/json')
 	
+
+"""
+    Zwraca ustawione parametry algorytmu
+    Przykładowe wywołanie:
+        GET localhost:5000/parameters
+    Odpowiedź:
+        {
+            "cards": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 
+            "mi": 40, 
+            "lambda": 20, 
+            "crosses": 2, 
+            "epochs": 100
+        }
+"""
+@app.route("/parameters")
+def parameters_handler():
+    with open('./genetics/conf.json') as conf_file:
+        configuration = json.load(conf_file)
+    print(configuration)
+    return Response(json.dumps(configuration), mimetype='application/json')
+    
+
+
 #kodowanie odpowiedzi
 app.config['RESTUFL_JSON'] = {
     'ensure_ascii': False
