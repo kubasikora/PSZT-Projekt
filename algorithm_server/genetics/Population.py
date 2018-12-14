@@ -4,6 +4,11 @@ from functools import cmp_to_key
 
 class Population:
     def __init__(self, params, judge, a, b):
+        if not isinstance(a, (int, float)): 
+            raise TypeError
+        if not isinstance(b, (int, float)):
+            raise TypeError
+
         self.params = params
         self.parents = []
         self.judge = judge
@@ -11,6 +16,8 @@ class Population:
         self.b = b
 
     def push_phenotype(self, phenotype):
+        if not isinstance(phenotype, Phenotype):
+            raise TypeError
         self.parents.append(phenotype)
 
     def generate_random_population(self):

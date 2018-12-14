@@ -4,11 +4,9 @@ import json
 
 class Judge:
     def __init__(self, cards):
-        
         self.cards = cards
         self.cards_length = len(self.cards)
-        self.cards_sum = sum(self.cards)
-        p1 = Phenotype(self.cards_length)  
+        self.cards_sum = sum(self.cards) 
 
     def goal_eval(self, a, b, phenotype):
         a_value = 0

@@ -26,7 +26,6 @@ def test_if_throws_typeerror_on_list_arg_A():
     with pytest.raises(TypeError):
         handler = CardsHandler([45], 34)
 
-
 def test_if_throws_typeerror_on_list_arg_A():
     with pytest.raises(TypeError):
         handler = CardsHandler(45, [34])

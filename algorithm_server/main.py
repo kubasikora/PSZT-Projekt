@@ -93,6 +93,8 @@ def find_distribution_handler():
     return Response(json.dumps(resp), mimetype='application/json')
 	
 
+
+
 """
     Zwraca ustawione parametry algorytmu
     Przykładowe wywołanie:
@@ -110,7 +112,6 @@ def find_distribution_handler():
 def parameters_handler():
     with open('./genetics/conf.json') as conf_file:
         configuration = json.load(conf_file)
-    print(configuration)
     return Response(json.dumps(configuration), mimetype='application/json')
     
 

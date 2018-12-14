@@ -2,6 +2,9 @@ import random
 
 class Phenotype:
     def __init__(self, num):
+        if not isinstance(num, int):
+            raise TypeError
+
         self.num = num
         self.genes = [False] * self.num     
     
@@ -10,10 +13,9 @@ class Phenotype:
             if(random.random() > 0.5):
                 self.genes[i] = True
 
-    def print(self):
-        print(self.genes)
-
     def set_fitness(self, fitness):
+        if not isinstance(fitness, int):
+            raise TypeError 
         self.fitness = fitness
 
     def crossover(self, phenotype, crosses):
