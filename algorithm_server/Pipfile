@@ -7,6 +7,7 @@ name = "pypi"
 requests = "*"
 flask = "*"
 flask-cors = "*"
+progress = "*"
 
 [dev-packages]
 pytest = "*"

@@ -1,6 +1,12 @@
 from .Phenotype import Phenotype
 import json
 
+"""
+    IMPORTANT INFO:
+        IF GENE IS TRUE THEN IT IS ASSIGNED TO A GROUP
+        ELSE IT IS ASSIGNED TO B GROUP 
+
+"""
 
 class Judge:
     def __init__(self, cards):
