@@ -14,7 +14,7 @@ class AlgorithmPageView extends Component {
 
     render() {
         return (
-            <div className="App">
+            <div className="transition-item">
                 <header className="App-header">
                     <img src="./helix.gif" className="App-logo" alt="logo" />
                     <p className="App-text" onClick={this.onClickHandler}>
