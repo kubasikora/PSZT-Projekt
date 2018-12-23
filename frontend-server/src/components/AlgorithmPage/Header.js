@@ -13,7 +13,7 @@ const Header = () => {
         </Grid>
 
         <Grid item xs={12}>
-            <Divider variant="middle" gutterBottom/>
+            <Divider variant="middle"/>
         </Grid>
         <Grid item xs={12} > &nbsp; </Grid>
     </Fragment>

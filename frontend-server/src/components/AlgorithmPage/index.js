@@ -8,7 +8,11 @@ import resetAllValues from '../../actions/resetAllValues';
 const mapStateToProps = (state, ownProps) => {
     return {
         A_value: state.values.A_value,
-        B_value: state.values.B_value
+        B_value: state.values.B_value,
+        lastArguments: state.genetic.actualArguments,
+        lastResult: state.genetic.actualResult,
+        error: state.genetic.error,
+        isFetching: state.genetic.fetching
     }
 }
 

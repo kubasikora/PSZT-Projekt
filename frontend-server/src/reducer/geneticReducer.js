@@ -1,15 +1,16 @@
 import {
     FETCH_GENETIC_RESPONSE_START,
     FETCH_GENETIC_RESPONSE_ACK,
-    FETCH_GENETIC_RESPONSE_ERROR
+    FETCH_GENETIC_RESPONSE_ERROR,
+    RESET_ALL_VALUES
 } from '../const/actionTypes';
 
 
 const initialState = {
     fetching: false,
     error: false,
-    actualResult: {},
-    actualArguments: {},
+    actualResult: undefined,
+    actualArguments: undefined,
     errorMessage: undefined
 }
 
@@ -26,7 +27,9 @@ const geneticReducer = (state = initialState, action) => {
             return {
                 ...state,
                 fetching: false,
-                actualResult: { A: action.payload.A, B: action.payload.B } 
+                actualResult: { A: action.payload.A, B: action.payload.B },
+                error: false,
+                errorMessage: undefined
             }
 
         case FETCH_GENETIC_RESPONSE_ERROR:
@@ -35,6 +38,16 @@ const geneticReducer = (state = initialState, action) => {
                 error: true,
                 fetching: false,
                 errorMessage: action.error
+            }
+
+        case RESET_ALL_VALUES:
+            return {
+                ...state,
+                error: false,
+                fetching: false,
+                errorMessage: undefined,
+                actualResult: undefined,
+                actualArguments: undefined
             }
     
         default:
