@@ -10,15 +10,6 @@ import "./AlgorithmPage.css";
 
 
 class AlgorithmPageView extends Component {
-    constructor(props){
-        super(props);
-        this.onClickHandler = this.onClickHandler.bind(this);
-    }
-
-    onClickHandler() {
-        console.log('handling the click...')
-        this.props.fetchGeneticResponse(30, 40);
-    }
 
     render() {
         return (
@@ -40,13 +31,23 @@ class AlgorithmPageView extends Component {
                     <Grid item xs={1} />
 
                     <Grid item xs={4}>
-                        <CardPicker title="Kupka A" content="Podaj sumę na kupce A" />  
+                        <CardPicker 
+                         title="Kupka A" 
+                         content={this.props.A_value}
+                         image="./sk8.jpg" 
+                         valueModifier={this.props.modifyAValue}
+                        />  
                     </Grid>
 
                     <Grid item xs={2} />
 
                     <Grid item xs={4}>
-                        <CardPicker title="Kupka B" content="Podaj sumę na kupce B" />  
+                        <CardPicker
+                         title="Kupka B"
+                         content={this.props.B_value}
+                         image="./sk8.jpg"
+                         valueModifier={this.props.modifyBValue}
+                        />  
                     </Grid>
                     <Grid item xs={1} />
 
