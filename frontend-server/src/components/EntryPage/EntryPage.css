@@ -3,7 +3,21 @@
     color: #000;
 }
 
-.own-transition {
-    overflow: auto;
-    transition: transform 0.5s, opacity 0.5s;
-}
+.entry-page-center {
+    text-align: center;
+  }
+  
+.entry-header {
+    background-color: #AADFF7;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+
+.entry-text {
+    color: #333333;
+  }

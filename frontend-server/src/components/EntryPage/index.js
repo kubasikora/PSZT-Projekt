@@ -6,8 +6,8 @@ import "./EntryPage.css";
 const EntryPage = () => {
     return (
         <div className="transition-item">
-            <header className="App-header">
-                <img src="./helix.gif" className="App-logo" alt="logo" />
+            <header className="entry-header">
+                <img src="./helix.gif" className="entry-logo" alt="logo" />
                     <Link to="/home" className="entry-text">
                         Dzień dobry
                     </Link>

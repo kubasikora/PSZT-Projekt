@@ -1,0 +1,18 @@
+.algorithm-page {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    background-color: #AADFF7;
+}
+
+.algorithm-main-section {
+    background-color: white;
+    position: absolute;
+    left: 10%;
+    width: 80%;
+    height: 100%;
+    border: #AADFFF;
+}
