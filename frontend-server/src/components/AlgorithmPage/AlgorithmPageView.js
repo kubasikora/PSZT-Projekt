@@ -1,55 +1,87 @@
 import React, { Component } from 'react';
 import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
-import Divider from "@material-ui/core/Divider";
-import CardPicker from "./CardPicker";
+import Hidden from "@material-ui/core/Hidden";
 
+import CardPicker from "./CardPicker";
+import Header from "./Header";
 
 import "./AlgorithmPage.css";
-
-
+import { Button } from '@material-ui/core';
 
 class AlgorithmPageView extends Component {
+    constructor(props){
+        super(props);
+        this.sendRequest = this.sendRequest.bind(this);
+        this.resetValues = this.resetValues.bind(this);
+    }
+
+    sendRequest(){  
+        this.props.fetchGeneticResponse(this.props.A_value, this.props.B_value);
+    }
+
+    resetValues(){
+        this.props.resetAllValues();
+    }
 
     render() {
         return (
             <Grid container spacing={16} className="algorithm-page">
                 <Grid item xs={12} className="algorithm-main-section">
                     {/* MAIN CONTENT HERE*/}
-                    <Grid container spacing={24} alignItems="center">
+                    <Header />
+                    <Grid container spacing={16} direction="row" alignItems="center">
+                    <Hidden only={["xs", "xl"]}>
+                        <Grid item  sm={1} md={1} style={{marginTop: "20vh"}}></Grid>
+                    </Hidden>
                     
-                    <Grid item xs={12}>
-                        <Typography style={{marginLeft: "50px", marginTop: "15px"}} gutterBottom variant="h2">
-                            Genetic Shuffler
-                        </Typography>
-                    </Grid>
-
-                    <Grid item xs={12}>
-                        <Divider variant="middle" />
-                    </Grid>
-
-                    <Grid item xs={1} />
-
-                    <Grid item xs={4}>
+                    <Grid item xs={12} sm={10} md={5}>
                         <CardPicker 
                          title="Kupka A" 
                          content={this.props.A_value}
-                         image="./sk8.jpg" 
+                         image="./cards1.jpg" 
                          valueModifier={this.props.modifyAValue}
                         />  
-                    </Grid>
+                    </Grid> 
+                    <Hidden only={["xs", "md", "lg", "xl"]}>
+                        <Grid item sm={1}></Grid>
+                    </Hidden>
 
-                    <Grid item xs={2} />
-
-                    <Grid item xs={4}>
+                    <Hidden only={["xs", "md", "lg", "xl"]}>
+                        <Grid item sm={1}></Grid>
+                    </Hidden>
+                    <Grid item xs={12} sm={10} md={5}>
                         <CardPicker
                          title="Kupka B"
                          content={this.props.B_value}
-                         image="./sk8.jpg"
+                         image="./cards2.png"
                          valueModifier={this.props.modifyBValue}
                         />  
                     </Grid>
-                    <Grid item xs={1} />
+                    <Hidden only={["xs", "xl"]}>
+                        <Grid item sm={1} md={1}></Grid>
+                    </Hidden>
+
+                    <Grid container spacing={16} style={{marginTop: "20px", marginBottom: "20px"}}>
+                        <Grid item xs={6} container direction="column" alignItems="flex-end">
+                            <Button size="large" variant="contained" color="primary" onClick={this.sendRequest}>
+                                Znajdź podział!  
+                            </Button> 
+                        </Grid>
+                        <Grid item xs={6}>
+                            <Button size="large" variant="outlined" color="primary" onClick={this.resetValues}>
+                                Resetuj 
+                            </Button>
+                        </Grid>
+                    </Grid>
+
+                    <Grid container spacing={20} alignItems="center" direction="column" item xs={6}>
+                        
+                    </Grid>
+
+                    <Grid container spacing={20} alignItems="center" direction="column" item xs={6}>
+                        
+                    </Grid>
+
 
                     </Grid>
                 </Grid>

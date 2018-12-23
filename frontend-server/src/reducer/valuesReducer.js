@@ -1,6 +1,7 @@
 import {
     MODIFY_A_VALUE,
-    MODIFY_B_VALUE
+    MODIFY_B_VALUE,
+    RESET_ALL_VALUES
 } from '../const/actionTypes';
 
 
@@ -22,6 +23,14 @@ const valuesReducer = (state = initialState, action) => {
                 ...state,
                 B_value: state.B_value + action.payload.value
             }
+
+        case RESET_ALL_VALUES:
+            return {
+                ...state,
+                A_value: 0,
+                B_value: 0
+            }
+
 
         default: 
             return {

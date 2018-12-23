@@ -11,9 +11,10 @@ const fetchGeneticResponse = (A, B) => {
 			B
 		};
 		dispatch(fetchGeneticResponseStart(args));
-		axios.get(`${endpoint}/test?A=${A}&B=${B}`)
+		axios.get(`${endpoint}/find-distribution?A=${A}&B=${B}`)
 			.then(response => {
 				dispatch(fetchGeneticResponseAck(response))
+				alert(JSON.stringify(response.data))
 			})
 			.catch(error => dispatch(fetchGeneticResponseError(error)))	
 	}

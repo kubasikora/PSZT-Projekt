@@ -6,6 +6,8 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+import Hidden from '@material-ui/core/Hidden';
 
 const CardPicker = (props) => {
 
@@ -29,11 +31,11 @@ const CardPicker = (props) => {
         <Card>
             <CardActionArea>
                 <CardMedia
-                component="img"
-                alt="Po makale karta stop"
-                height="200"
-                image={props.image}
-                title="Contemplative Reptile"
+                    component="img"
+                    alt="Po makale karta stop"
+                    height="200"
+                    image={props.image}
+                    title="Contemplative Reptile"
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
@@ -45,23 +47,34 @@ const CardPicker = (props) => {
                 </CardContent>
             </CardActionArea>
             
-            <CardActions>
-                <Button size="small" variant="contained" color="primary" onClick={addOne}>
-                    +1
-                </Button>
-
-                <Button size="small" variant="contained" color="primary" onClick={addTen}>
-                    +10
-                </Button>
-
-                <Button size="small" style={{marginLeft: "auto"}} variant="contained" color="secondary" onClick={removeOne}>
-                    -1
-                </Button>
-
-                <Button size="small" variant="contained" color="secondary" onClick={removeTen}>
-                    -10
-                </Button>
+            <Grid container spacing={0} direction="column">
+                <CardActions>   
+                    <Grid container direction="column" alignItems="flex-end" item xs={12} sm={6} md={2}>
+                        <Button size="small" variant="contained" color="primary" onClick={addOne}>
+                            +1
+                        </Button>
+                    </Grid>
+                    
+                    <Grid container direction="column" alignItems="flex-start" item xs={12} sm={6} md={4}>
+                        <Button size="small" variant="contained" color="primary" onClick={addTen}>
+                            +10
+                        </Button>
+                    </Grid>
+            
+                    <Grid container direction="column" alignItems="flex-end" item xs={12} sm={6} md={4}>
+                        <Button size="small" variant="contained" color="secondary" onClick={removeOne}>
+                            -1   
+                        </Button>
+                    </Grid>
+                
+                    <Grid container direction="column" alignItems="flex-start" item xs={12} sm={6} md={2}>
+                        <Button size="small" variant="contained" color="secondary" onClick={removeTen}>
+                            -10
+                        </Button>
+                    </Grid>
+                
             </CardActions>
+            </Grid>
         </Card>
     )
 }

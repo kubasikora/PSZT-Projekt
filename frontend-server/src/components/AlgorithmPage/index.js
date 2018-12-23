@@ -3,6 +3,7 @@ import AlgorithmPageView from './AlgorithmPageView';
 import fetchGeneticResponse from '../../actions/fetchGeneticResponse';
 import modifyAValue from '../../actions/modifyAValue';
 import modifyBValue from '../../actions/modifyBValue';
+import resetAllValues from '../../actions/resetAllValues';
 
 const mapStateToProps = (state, ownProps) => {
     return {
@@ -17,6 +18,7 @@ const mapDispatchToProps = dispatch => {
         fetchGeneticResponse: (A,B) => dispatch(fetchGeneticResponse(A, B)),
         modifyAValue: (value) => dispatch(modifyAValue(value)),
         modifyBValue: (value) => dispatch(modifyBValue(value)),
+        resetAllValues: () => dispatch(resetAllValues())
     }
 }
 
