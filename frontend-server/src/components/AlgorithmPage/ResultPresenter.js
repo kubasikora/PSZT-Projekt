@@ -5,11 +5,15 @@ import Grid from "@material-ui/core/Grid";
 import ResultCard from "./ResultCard";
 
 const ResultPresenter = (props) => {
+    let sum = 0;
+    props.result.forEach(element => {
+        sum += element;
+    });
     return (
         <Fragment>
             <Grid item xs={12}>
                 <Typography style={{ marginLeft: "50px", marginTop: "15px" }} gutterBottom variant="h5">
-                    Grupa {props.group}
+                    Grupa {props.group}, suma kart: {sum}
                 </Typography>
             </Grid>
 
