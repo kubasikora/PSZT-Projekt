@@ -2,7 +2,6 @@ import React, { Component, Fragment } from 'react';
 import Grid from "@material-ui/core/Grid";
 import Hidden from "@material-ui/core/Hidden";
 import Button from "@material-ui/core/Button";
-import LinearProgress from "@material-ui/core/LinearProgress";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
 import CardPicker from "./CardPicker";

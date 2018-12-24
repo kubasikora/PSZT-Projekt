@@ -3,7 +3,6 @@ import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 
 import ResultCard from "./ResultCard";
-import { Paper } from "@material-ui/core";
 
 const ResultPresenter = (props) => {
     return (
