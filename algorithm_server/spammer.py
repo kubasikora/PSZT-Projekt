@@ -11,7 +11,7 @@ from progress.bar import IncrementalBar
 from genetics import Phenotype, Judge
 
 __URL__  = 'http://localhost:5000'
-__REQUEST_NUM__ = 500
+__REQUEST_NUM__ = 1000
 
 def url_factory(a,b):
     return __URL__ + '/find-distribution?A=' + str(a) + '&B=' + str(b)
