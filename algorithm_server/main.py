@@ -3,6 +3,7 @@ from flask_cors import CORS
 from genetics import CardsHandler, Judge, Phenotype, Population
 import os
 import json
+import logging
 
 app = Flask(__name__) # utworzenie obiektu serwera
 CORS(app) # włączenie mechanizmu Cross-Origin-Resource-Sharing
@@ -123,4 +124,6 @@ app.config['RESTUFL_JSON'] = {
 
 #uruchomienie serwera na porcie wskazanym przez zmienną środowiskową/domyślną wartość
 port = int(os.environ.get('PORT', 5000))
+log = logging.getLogger('werkzeug')
+log.setLevel(logging.ERROR)
 app.run(host='0.0.0.0', port=port)  
