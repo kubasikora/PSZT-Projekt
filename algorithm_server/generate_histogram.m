@@ -1,5 +1,5 @@
 function [ average, SD, variance, maxi ] = generate_histogram( A, B, ep, lam, mi)
-   load(['results/spammer/spammer_test_A=',num2str(A)','B=',num2str(B),'epochs=',num2str(ep),'mi=',num2str(mi),'lambda=',num2str(lam),'.mat']);
+   load(['results/spammer/spammer_test_A=',num2str(A),'B=',num2str(B),'epochs=',num2str(ep),'mi=',num2str(mi),'lambda=',num2str(lam),'.mat']);
     errors2=double(errors);
     average=mean(errors2);
     SD=std(errors2);
