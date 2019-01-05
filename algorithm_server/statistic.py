@@ -17,8 +17,8 @@ __CONF_FILE_PATH__ = './genetics/conf.json'
 def url_factory(a,b):
     return __URL__ + '/find-distribution?A=' + str(a) + '&B=' + str(b)
 
-def generate_name_file(A,B):
-    return './results/statistic/statisticA=' + str(A) + 'B=' + str(B) + '.mat'
+def generate_name_file(A,B, mi, lam):
+    return './results/statistic/statisticA=' + str(A) + 'B=' + str(B) + 'mi='+ str(mi) + 'lambda=' + str(lam) + '.mat'
 
 if __name__ == "__main__":
     try:
@@ -86,12 +86,12 @@ if __name__ == "__main__":
 
         # save statistics to matlab
         statistics = {
-            "avg": np.array(averages),
-            "var": np.array(variances), 
-            "std": np.array(devations),
+            "error_average": np.array(averages),
+            "error_variance": np.array(variances), 
+            "error_std": np.array(devations),
         }
 
-        filename = generate_name_file(_A_, _B_)
+        filename = generate_name_file(_A_, _B_, global_conf['mi'], global_conf['lambda'])
         sio.savemat(filename, statistics)
         
         # revert conf file to original 
